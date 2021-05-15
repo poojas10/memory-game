@@ -84,4 +84,7 @@ body{
     body{
       grid-template-columns: repeat(3,1fr);
     }
+    .winner-modal{
+      width: 80%;
+    }
   }
