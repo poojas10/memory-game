@@ -78,5 +78,6 @@ body{
   @media screen and (max-width:1000px) {
     body{
       padding: 2rem 3rem;
+      grid-template-columns: repeat(3,1fr);
     }
   }
