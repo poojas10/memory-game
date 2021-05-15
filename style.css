@@ -77,6 +77,6 @@ body{
   }
   @media screen and (max-width:1000px) {
     body{
-      padding: 2rem 4rem;
+      padding: 2rem 3rem;
     }
   }
