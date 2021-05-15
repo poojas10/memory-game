@@ -70,7 +70,7 @@ body{
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    display: none;
+    /* display: none; */
   }
   .winner-modal h1{
     font-size: 4rem;
@@ -86,5 +86,6 @@ body{
     }
     .winner-modal{
       width: 80%;
+      padding: 2rem 1rem;
     }
   }
