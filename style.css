@@ -87,6 +87,7 @@ body{
     .winner-modal{
       width: 80%;
       padding: 2rem 1rem;
+      display: none;
     }
     .winner-modal h1{
       font-size: 3rem;
