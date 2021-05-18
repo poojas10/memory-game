@@ -96,9 +96,9 @@ function displayCards() {
 
   for (let i = 0; i < userSelection.length; i++) {
     if (i > 0) {
-      document.querySelectorAll(".cards").forEach((e) => {
-        e.style.pointerEvents = "none";
-      });
+      // document.querySelectorAll(".cards").forEach((e) => {
+      //   e.style.pointerEvents = "none";
+      // });
       if (userSelection[i] !== userSelection[i + 1]) {
         cardsUnMatched();
       }
@@ -133,13 +133,19 @@ function cardsUnMatched() {
         userClickedCard[index].lastElementChild.style.backgroundColor =
           "transparent";
       }, 100);
-      cards.forEach((e) => {
-        if (!e.classList.contains("win")) {
-          e.style.pointerEvents = "auto";
-        } else {
-          e.style.pointerEvents = "none";
-        }
-      });
+      // cards.forEach((e) => {
+      // //   // console.log(userSelection.length);
+      // //   if(userSelection.length===2){
+      //           e.style.pointerEvents = "auto";
+      // //   }
+      // //   else{
+      // //     e.style.pointerEvents = "none";
+      // //   }
+      // // // //   if (!e.classList.contains("win")) {
+      // // // //   } else {
+      // // // //     e.style.pointerEvents = "none";
+      // // // //   }
+      //  });
     }, 2000);
   }
 }
@@ -148,7 +154,7 @@ function cardsMatched() {
   for (const [index, element] of userSelection) {
     setTimeout(() => {
       userClickedCard[index].classList.add("win");
-      userClickedCard[index].style.pointerEvents = "none";
+      // userClickedCard[index].style.pointerEvents = "none";
       userClickedCard[
         index
       ].lastElementChild.lastElementChild.style.backgroundColor = "#21C197";
