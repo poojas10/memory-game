@@ -93,21 +93,33 @@ function displayCards() {
       this.getAttribute("data-set"),
     ]);
   }
-
-  for (let i = 0; i < userSelection.length; i++) {
-    if (i > 0) {
-      // document.querySelectorAll(".cards").forEach((e) => {
-      //   e.style.pointerEvents = "none";
-      // });
-      if (userSelection[i] !== userSelection[i + 1]) {
-        cardsUnMatched();
+  if(userSelection.length ==2){
+    document.querySelectorAll(".cards").forEach((e) => {
+              e.classList.add('click');
+            });
+    if(userSelection[0][1] !== userSelection[1][1]){
+      cardsUnMatched()
+    }
+    if(userSelection[0][1] === userSelection[1][1]){
+    if(userSelection[0][0] !== userSelection[1][0]){
+        cardsMatched()
       }
-      if (userSelection[0][1] === userSelection[1][1]) {
-        cardsMatched();
+      else{
+        cardsUnMatched()
       }
     }
+
   }
-}
+//   for (let i = 0; i < userSelection.length; i++) {
+//     if (i > 0) {
+//      
+//       if (userSelection[i] !== userSelection[i + 1]) {
+//         cardsUnMatched();
+//       }
+//         console.log(userSelection);
+//     }
+//   }
+ }
 
 function cardsStyling({ rotationDegree, visibility, index }) {
   userClickedCard[index].lastElementChild.style.transform = `${rotationDegree}`;
@@ -133,28 +145,23 @@ function cardsUnMatched() {
         userClickedCard[index].lastElementChild.style.backgroundColor =
           "transparent";
       }, 100);
-      // cards.forEach((e) => {
-      // //   // console.log(userSelection.length);
-      // //   if(userSelection.length===2){
-      //           e.style.pointerEvents = "auto";
-      // //   }
-      // //   else{
-      // //     e.style.pointerEvents = "none";
-      // //   }
-      // // // //   if (!e.classList.contains("win")) {
-      // // // //   } else {
-      // // // //     e.style.pointerEvents = "none";
-      // // // //   }
-      //  });
+      document.querySelectorAll(".cards").forEach((e,i) => {
+        if(e.classList.contains('win')){
+          e.classList.add('click')
+        }
+        else{
+          e.classList.remove('click');
+        }
+      });
     }, 2000);
-  }
+  };
 }
 function cardsMatched() {
   pointsScored++;
   for (const [index, element] of userSelection) {
     setTimeout(() => {
       userClickedCard[index].classList.add("win");
-      // userClickedCard[index].style.pointerEvents = "none";
+      userClickedCard[index].style.pointerEvents = "none";
       userClickedCard[
         index
       ].lastElementChild.lastElementChild.style.backgroundColor = "#21C197";
@@ -162,6 +169,10 @@ function cardsMatched() {
         rotationDegree: "rotateY(0deg)",
         visibility: "visible",
         index: index,
+      });
+      document.querySelectorAll(".cards").forEach((e,i) => {
+          e.classList.remove('click');
+        
       });
     }, 2000);
   }
